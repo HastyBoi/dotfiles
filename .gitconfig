@@ -1,7 +1,5 @@
 [core]
-	editor = vim
+    editor = vim
 [user]
-	name = -hasty-
-	email = dayaglech@hotmail.com
-[credential]
-	helper = manager
+    name = -hasty-
+    email = dayaglech@hotmail.com
