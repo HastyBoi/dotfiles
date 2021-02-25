@@ -1,4 +1,4 @@
-let g:polyglot_disabled = ['c/c++.plugin']
+"let g:polyglot_disabled = ['c/c++.plugin']
 
 call plug#begin('~/.vim/plugged')
 
@@ -68,7 +68,7 @@ set wildignore+=*.jpg,*.png,*.gif,*.bmp,*.ico,*.pdf
 set wildignore+=*.tmp,*.swp
 
 " transparent background
-hi! Normal ctermbg=NONE guibg=NONE
+"hi! Normal ctermbg=NONE guibg=NONE
 
 " vim-autoformat format on save
 autocmd BufWrite * :Autoformat
@@ -108,9 +108,9 @@ if (empty($TMUX))
     if (has("nvim"))
         let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     endif
-    if (has("termguicolors"))
-        set termguicolors
-    endif
+    "if (has("termguicolors"))
+    "    set termguicolors
+    "endif
 endif
 
 " lightline
@@ -132,19 +132,19 @@ endfunction
 let g:lightline = {
             \ 'colorscheme': 'onedark',
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-            \   'right': [ [ 'lineinfo' ],
-            \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
-            \ },
-            \ 'component_function': {
-            \   'cocstatus': 'StatusDiagnostic'
-            \ },
-            \ 'inactive': {
-            \   'left': [ [ 'filename' ] ],
-            \   'right': [ [ 'lineinfo' ] ]
-            \ },
-            \}
+                \   'left': [ [ 'mode', 'paste' ],
+                \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+                \   'right': [ [ 'lineinfo' ],
+                \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
+                \ },
+                \ 'component_function': {
+                    \   'cocstatus': 'StatusDiagnostic'
+                    \ },
+                    \ 'inactive': {
+                        \   'left': [ [ 'filename' ] ],
+                        \   'right': [ [ 'lineinfo' ] ]
+                        \ },
+                        \}
 
 " add coc status to lightline
 

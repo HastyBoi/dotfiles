@@ -30,11 +30,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
@@ -56,24 +51,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-    xterm*|rxvt*)
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-        ;;
-    *)
-        ;;
-esac
-
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -93,6 +72,28 @@ if ! shopt -oq posix; then
     elif [ -f /etc/bash_completion ]; then
         . /etc/bash_completion
     fi
+fi
+
+# add colors to tty
+if [ "$TERM" = "linux" ]; then
+    #echo -en "\e]P01B1D23" #black
+    echo -en "\e]P0111111" #black
+    echo -en "\e]P8282C34" #darkgrey
+    echo -en "\e]P1E06C75" #darkred
+    echo -en "\e]P9E06C75" #red
+    echo -en "\e]P298C379" #darkgreen
+    echo -en "\e]PA98C379" #green
+    echo -en "\e]P3E5C07B" #brown
+    echo -en "\e]PBE5C07B" #yellow
+    echo -en "\e]P461AFEF" #darkblue
+    echo -en "\e]PC61AFEF" #blue
+    echo -en "\e]P5C678DD" #darkmagenta
+    echo -en "\e]PDC678DD" #magenta
+    echo -en "\e]P656B6C2" #darkcyan
+    echo -en "\e]PE56B6C2" #cyan
+    echo -en "\e]P7ABB2BF" #lightgrey
+    echo -en "\e]PFABB2BF" #white
+    clear
 fi
 
 # prikaldes
@@ -117,13 +118,13 @@ fi
 
 source "$HOME/.cargo/env"
 
-source ~/.bash_completion.d/alacritty
+#source ~/.bash_completion.d/alacritty
 
 # disable scroll lock on ctrl+s
 stty -ixon
 
-# this should be in ~/.xprofile or ~/.xsession
-xset r rate 215 42
+## this should be in ~/.xprofile or ~/.xsession
+#xset r rate 215 42
 
 # add colors to man
 export LESS_TERMCAP_mb=$'\e[1;32m'
