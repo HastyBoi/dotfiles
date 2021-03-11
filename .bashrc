@@ -77,27 +77,28 @@ fi
 # add colors to tty
 if [ "$TERM" = "linux" ]; then
     #echo -en "\e]P01B1D23" #black
-    echo -en "\e]P0111111" #black
-    echo -en "\e]P8282C34" #darkgrey
-    echo -en "\e]P1E06C75" #darkred
-    echo -en "\e]P9E06C75" #red
-    echo -en "\e]P298C379" #darkgreen
-    echo -en "\e]PA98C379" #green
-    echo -en "\e]P3E5C07B" #brown
-    echo -en "\e]PBE5C07B" #yellow
-    echo -en "\e]P461AFEF" #darkblue
-    echo -en "\e]PC61AFEF" #blue
-    echo -en "\e]P5C678DD" #darkmagenta
-    echo -en "\e]PDC678DD" #magenta
-    echo -en "\e]P656B6C2" #darkcyan
-    echo -en "\e]PE56B6C2" #cyan
-    echo -en "\e]P7ABB2BF" #lightgrey
-    echo -en "\e]PFABB2BF" #white
-    clear
+    echo -en "\e]P0000000" #black
+    echo -en "\e]P8282c34" #darkgrey
+    echo -en "\e]P1e06c75" #darkred
+    echo -en "\e]P9e06c75" #red
+    echo -en "\e]P298c379" #darkgreen
+    echo -en "\e]PA98c379" #green
+    echo -en "\e]P3e5c07b" #brown
+    echo -en "\e]PBe5c07b" #yellow
+    echo -en "\e]P461afef" #darkblue
+    echo -en "\e]PC61afef" #blue
+    echo -en "\e]P5c678dd" #darkmagenta
+    echo -en "\e]PDc678dd" #magenta
+    echo -en "\e]P656b6c2" #darkcyan
+    echo -en "\e]PE56b6c2" #cyan
+    echo -en "\e]P7abb2bf" #lightgrey
+    echo -en "\e]PFabb2bf" #white
+    #clear
 fi
 
 # prikaldes
 figlet $USER | lolcat --seed=100
+#colorscript -e 49
 
 # enable vim mode
 set -o vi
@@ -136,3 +137,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 source /home/hasty/.config/broot/launcher/bash/br
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH="${JAVA_HOME}/bin:${PATH}"
+export CLASSPATH=".;"

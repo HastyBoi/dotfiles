@@ -20,16 +20,19 @@ Plug 'mhinz/vim-startify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'mattn/emmet-vim'
+Plug 'jelera/vim-javascript-syntax'
 
 "colorschemes
 Plug 'joshdick/onedark.vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 
 " settings
 syntax on
 filetype plugin indent on
-colorscheme onedark
+colorscheme palenight
 set background=dark
 set number relativenumber
 set expandtab
@@ -60,6 +63,9 @@ set signcolumn=number
 set splitbelow
 set splitright
 set fileformat=unix
+set whichwrap+=b,s,<,>,[,]
+" not recommended
+set whichwrap+=h,l
 
 
 " ignore useless extensions for wildmenu
@@ -67,20 +73,23 @@ set wildignore+=*.a,*.o,*.so,*.pyc,.git
 set wildignore+=*.jpg,*.png,*.gif,*.bmp,*.ico,*.pdf
 set wildignore+=*.tmp,*.swp
 
+" disable automatic commenting on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " transparent background
-"hi! Normal ctermbg=NONE guibg=NONE
+hi! Normal ctermbg=NONE guibg=NONE
 
 " vim-autoformat format on save
 autocmd BufWrite * :Autoformat
 " disable vim-autoformat for conf files
-autocmd FileType conf,yaml let b:autoformat_autoindent=0
+autocmd FileType conf,yaml,vim,dosini let b:autoformat_autoindent=0
 
 " coc prettify
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " vim-nerdtree-syntax-highlight highlight full name
-let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 
 " close NERDTree when closing the last buffer
@@ -89,8 +98,6 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " show hidden files in NERDTree
 "let NERDTreeShowHidden=1
 
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeMinimalUI = 1
 
 " auto toggle line numbers
@@ -103,14 +110,14 @@ augroup END
 " status bar config
 "set statusline+=%#warningmsg#
 
-" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 if (empty($TMUX))
     if (has("nvim"))
         let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     endif
-    "if (has("termguicolors"))
-    "    set termguicolors
-    "endif
+    if (has("termguicolors"))
+        set termguicolors
+    endif
 endif
 
 " lightline
@@ -130,25 +137,25 @@ function! StatusDiagnostic() abort
 endfunction
 
 let g:lightline = {
-            \ 'colorscheme': 'onedark',
+            \ 'colorscheme': 'palenight',
             \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ],
-                \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-                \   'right': [ [ 'lineinfo' ],
-                \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
-                \ },
-                \ 'component_function': {
-                    \   'cocstatus': 'StatusDiagnostic'
-                    \ },
-                    \ 'inactive': {
-                        \   'left': [ [ 'filename' ] ],
-                        \   'right': [ [ 'lineinfo' ] ]
-                        \ },
-                        \}
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+            \   'right': [ [ 'lineinfo' ],
+            \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
+            \ },
+            \ 'component_function': {
+            \   'cocstatus': 'StatusDiagnostic'
+            \ },
+            \ 'inactive': {
+            \   'left': [ [ 'filename' ] ],
+            \   'right': [ [ 'lineinfo' ] ]
+            \ },
+            \}
 
 " add coc status to lightline
-
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 " c++ enhanced highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -167,8 +174,15 @@ let g:startify_bookmarks = [{'c': '~/.vimrc'}, {'h': '~/.bashrc' }, {'p': '~/.pr
 nnoremap <silent><C-b> :NERDTreeToggle<CR>
 nnoremap <C-n> :tabnew <bar> :Startify<CR>
 
+" visual line navigation
+nnoremap j gj
+nnoremap k gk
+
 " set space as the leader key
 let mapleader = " "
+
+" change emmet leader key
+let g:user_emmet_leader_key=','
 
 " save file
 noremap <silent><leader>w :up<CR>
@@ -197,12 +211,12 @@ noremap <leader>th <C-w>t<C-w>K
 noremap <leader>tk <C-w>t<C-w>H
 
 " move lines up/down
-nnoremap <silent><Esc>j :m .+1<CR>==
-nnoremap <silent><Esc>k :m .-2<CR>==
-inoremap <silent><Esc>j <Esc>:m .+1<CR>==gi
-inoremap <silent><Esc>k <Esc>:m .-2<CR>==gi
-vnoremap <silent><Esc>j :m '>+1<CR>gv=gv
-vnoremap <silent><Esc>k :m '<-2<CR>gv=gv
+"nnoremap <silent><C-S>j :m .+1<CR>==
+"nnoremap <silent><C-S>k :m .-2<CR>==
+"inoremap <silent><C-S>j <Esc>:m .+1<CR>==gi
+"inoremap <silent><C-S>k <Esc>:m .-2<CR>==gi
+"vnoremap <silent><C-S>j :m '>+1<CR>gv=gv
+"vnoremap <silent><C-S>k :m '<-2<CR>gv=gv
 
 " disable arrows
 for key in ['<Up>', '<Down>', '<Left>', '<Right>']

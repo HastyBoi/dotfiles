@@ -16,3 +16,5 @@ alias l='ls -CF'
 alias cls='clear'
 
 alias cfg='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+alias livereload="browser-sync start --server --files ."
