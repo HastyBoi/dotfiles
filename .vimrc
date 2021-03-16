@@ -115,7 +115,7 @@ if (empty($TMUX))
     if (has("nvim"))
         let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     endif
-    if (has("termguicolors"))
+    if (has("termguicolors") && $TERM != "linux")
         set termguicolors
     endif
 endif
@@ -182,7 +182,7 @@ nnoremap k gk
 let mapleader = " "
 
 " change emmet leader key
-let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key=","
 
 " save file
 noremap <silent><leader>w :up<CR>
