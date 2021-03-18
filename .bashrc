@@ -74,6 +74,12 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# disable scroll lock on ctrl+s
+stty -ixon
+
+# auto cd when entering just a path
+shopt -s autocd
+
 # add colors to tty
 if [ "$TERM" = "linux" ]; then
     #echo -en "\e]P01B1D23" #black
@@ -97,11 +103,11 @@ if [ "$TERM" = "linux" ]; then
 fi
 
 # prikaldes
-figlet $USER | lolcat --seed=100
+figlet $USER | lolcat --seed=102
 #colorscript -e 49
 
 # enable vim mode
-set -o vi
+#set -o vi
 
 # change prompt
 PS1='\[\033[01;34m\]\W\[\033[00m\]\$ '
@@ -117,16 +123,6 @@ else
     alias nvm='cowsay tak epta, ustanovi NVM_ENABLE=true v ~/.bashrc | lolcat'
 fi
 
-source "$HOME/.cargo/env"
-
-#source ~/.bash_completion.d/alacritty
-
-# disable scroll lock on ctrl+s
-stty -ixon
-
-## this should be in ~/.xprofile or ~/.xsession
-#xset r rate 215 42
-
 # add colors to man
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -136,8 +132,16 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-source /home/hasty/.config/broot/launcher/bash/br
-
+# setup java
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export PATH="${JAVA_HOME}/bin:${PATH}"
 export CLASSPATH=".;"
+
+# setup rust
+source "$HOME/.cargo/env"
+
+# search the official repos, when entering an unrecognized command
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+# setup broot
+source /home/hasty/.config/broot/launcher/bash/br

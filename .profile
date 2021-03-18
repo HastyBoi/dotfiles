@@ -25,7 +25,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# custom paths
-export PATH=~/Scripts/:$PATH
-source "$HOME/.cargo/env"

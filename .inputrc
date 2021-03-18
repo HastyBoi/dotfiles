@@ -1,0 +1,45 @@
+$include /etc/inputrc
+
+# enable vim mode
+set editing-mode vi
+
+# mode indicator in prompt
+set show-mode-in-prompt on
+
+# different cursor shapes for each mode
+$if term=linux
+    set vi-ins-mode-string \1\e[?8c\2
+    set vi-cmd-mode-string \1\e[?0c\2
+$else
+    set vi-ins-mode-string \1\e[2 q\2
+    set vi-cmd-mode-string \1\e[6 q\2
+$endif
+
+# enable history-search with up/down arrows
+$if mode=vi
+    set keymap vi-command
+    # these are for vi-command mode
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
+    j: history-search-forward
+    k: history-search-backward
+    set keymap vi-insert
+    # these are for vi-insert mode
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
+$endif
+
+# faster tab completion
+set show-all-if-ambiguous on
+
+# color files by types
+# note that this may cause completion text blink in some terminals (e.g. xterm).
+set colored-stats On
+# append char to indicate type
+set visible-stats On
+# mark symlinked directories
+set mark-symlinked-directories On
+# color the common prefix
+set colored-completion-prefix On
+# color the common prefix in menu-complete
+set menu-complete-display-prefix On
