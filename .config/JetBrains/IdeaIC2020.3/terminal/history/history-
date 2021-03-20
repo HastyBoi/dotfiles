@@ -1,0 +1,1000 @@
+ps -p $$
+ps -aux
+ps -aux | wc -l
+htop
+top
+mv .bashrc .bashrc.bak
+ll 
+kjkdj
+mv .bashrc.bak .bashrc
+vim .bashrc 
+bash
+vim .bashrc 
+bash
+vim .bashrc 
+bash
+vim .bashrc 
+cfg status
+sudo pacman -Ss w3m
+sudo pacman -S w3m
+man w3m
+w3m
+w3m lite.duckduckgo.com
+bash
+pacman -Q
+pacman -Qe
+pacman -Q | wc -l
+pacman -Qq | wc -l
+pacman -Qeq | wc -l
+pacman -Qeq
+pacman -SQ paru
+pacman -Ss paru
+pacman -Qs paru
+pacman -Q paru
+pacman -Qdt
+df -h
+iotop
+sudo iotop
+vim
+nmcli
+nmcli connection show
+man nmcli-examples
+vim
+neofetch
+vim
+neofetch
+vim
+sudo paru -Ss unimatrix
+sudo paru -S unimatrix
+paru -S unimatrix
+unimatrix
+neofetch 
+paru -Rns unimatrix
+paru -Rns unimatrix-git
+neofetch 
+cmatrix 
+fbcon
+cfg status
+git diff
+git diff | less
+git diff head
+git diff --help
+git diff ~/.bashrc 
+vim .bashrc 
+vim --version
+vim
+poweroff 
+sudo pacman -Syyu
+cmatrix 
+poweroff 
+sudo pacman -Syyu
+echo $0
+echo $TERM
+cd /
+cd ~/
+pwd
+cd /
+pwd
+ls
+su
+showconsolefont 
+man chcpu
+ll /usr/share/kbd/consolefonts/
+ll /usr/share/kbd/consolefonts/ | less
+vim /etc/mkinitcpio.conf 
+sh
+paru -Ss fbsplash
+pacman -Ss fbsplash
+vim
+poweroff 
+vim /etc/passwd
+vim /etc/shadow
+sudo cat /etc/shadow
+deallocvt 
+systemctl start getty@tty7.service
+systemctl stop getty@tty7.service
+ls -la /etc/systemd/system/
+ls -la /etc/systemd/system/getty.target.wants/
+sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf
+su
+cat /etc/systemd/system/getty@tty1.service.d/override.conf
+systemctl enable getty@tty1
+reboot 
+systemctl disable getty@tty1
+rm /etc/systemd/system/getty@tty1.service.d/override.conf
+rmdir /etc/systemd/system/getty@tty1.service.d
+sudo rmdir /etc/systemd/system/getty@tty1.service.d
+su
+ll /etc/systemd/system
+vim
+reboot 
+reboot
+su
+timedatectl 
+timedatectl set-ntp true
+timedatectl 
+timedatectl status
+hwclock --show
+hwclock --verbose
+sudo hwclock --show
+sudo hwclock --systohc
+timedatectl 
+timedatectl | grep local
+yes | sudo pacman -Syyu
+reboot 
+nmcli device wifi list
+nmcli device wifi connect falshiuka password musaramusaraa
+ping vk.com
+rm -rf /
+sudo rm -rf /
+nwtui
+nmwui
+nmtui
+clear
+mncli
+nmcli
+nmtui
+man nmcli
+vim .bash_history 
+ping google.com
+sudo pacman -Sy 
+sudo pacman -u
+sudo pacman -Su
+nmcli device wifi list
+vim .bash_history 
+nmcli device wifi list
+nmcli device wifi connect A204K1 password 87654321
+ping google.com
+nmcli device wifi connect falshiuka
+ping google.com
+reboot
+nmcli general
+nmcli general hostname
+nmcli general permissions
+nmcli general logging
+nmcli general
+nmcli networking connectivity
+nmcli device wifi connect
+nmcli device wifi list
+nmcli device wifi connect BELSTU_FREE_WIFI
+nmcli networking connectivity
+nmcli networking 
+nmcli general
+nmcli networking 
+nmcli networking connectivity
+nmcli radio wifi
+nmcli radio wifi off
+nmcli radio wifi 
+nmcli radio wifi on
+nmcli radio wifi 
+nmcli networking
+nmcli networking connectivity
+nmcli radio all
+nmcli monitor
+nmcli
+ping vk.com
+nmcli connection monitor
+nmcli
+nmcli connection
+ping 127.0.0.1
+nmcli con show
+nmcli --show-secrets con show
+nmcli con
+nmcli con delete 84cd5895-a494-4eff-b652-addac5190a39
+nmcli con
+nmcli con delete BELSTU_FREE_WIFI
+nmcli con
+nmtui
+nmcli device show list
+nmcli wifi device show list
+vim .bash_history 
+nmcli device wifi list
+ping vk.com
+nmcli device wifi connect BELSTU_FREE_WIFI
+ping vk.com
+nmcli device wifi connect falshiuka
+ping vk.com
+man nmcli
+nmcli --complete-args
+nmcli device --complete-args
+man nmcli
+nmcli --complete-args device
+nmcli --complete-args wifi
+nmcli --complete-args device wifi
+nmcli --complete-args device wifi list
+man nmcli
+poweroff 
+nmcli general
+nmcli
+nmcli networking
+nmcli networking connectivity
+nmcli device wifi list
+nmcli device wifi connect falshiuka
+poweroff 
+cmatrix 
+vim
+w3m
+nmcli con
+nmcli device wifi connect falshiuka
+nmtui
+vim .bash_history 
+nmcli 
+vim .bash_history 
+nmcli device wifi connect falshiuka
+nmcli con
+nmcli device wifi connect falshiuka password musaramusaraa
+nmtui
+man nmcli
+w3m wiki.archlinux.com
+w3m lite.duckduckgo.com
+w3m vk.com
+w3m google.com
+sudo pacman Ss w3m
+sudo pacman -Ss w3m
+sudo pacman -Qs w3m
+w3m youtube.com
+nmcli
+sudo paru -Ss w3m
+vifm
+reboot 
+pacman -Ss xorg
+pacman -Ssq xorg
+man lspci
+lspci -v
+lspci -v | grep -A1 -e VGA -e 3D
+pacman -Ss xf86-video
+pacman -Ss xf86-video
+sudo pacman -S xf86-video-ati
+pacman -Qdt
+sudo pacman -S xorg xorg-xinit
+sudo pacman -S nitrogen picom
+sudo pacman -Syu
+df -h
+man lsblk
+lsblk -f
+mount /dev/sda1 /mnt
+sudo !
+sudo sudo !
+sudo mount /dev/sda1 /mnt
+ll /mnt/
+cd
+umount /mnt
+sudo umount /mnt
+ll /mnt/
+mount /dev/sda2 /mnt
+sudo mount /dev/sda2 /mnt
+ll /mnt
+ls /mnt
+ll /mnt 
+ll /mnt | less
+sudo umount /mnt
+sudo mount /dev/sda3 /mnt
+ll /mnt/ | less
+sudo umount /mnt/
+ll /mnt/
+df -h
+htop
+sudo pacman -S alacritty
+sudo pacman -S firefox
+sudo paru -S leftwm
+paru -S leftwm
+pacman -Ss polybar
+pacman -Ss dmenu
+sudo pacman -S dmenu
+paru -S polybar
+pacman -Qdt
+df -h
+nmcli
+cls
+poweroff 
+cp /etc/X11/xinit/xinitrc /home/hasty/.xinitrc
+vim .xinitrc 
+reboot 
+nitrogen
+startx
+vim .xinitrc 
+whoami
+neofetch
+vim
+nitrogen
+neofetch
+vim .xinitrc 
+sudo mount /dev/sda3 /mnt
+ll /mnt/
+ll
+mkdir pictures
+cp -r /mnt/Users/Timofei/Pictures/Chert/ ~/pictures/
+ll pictures/
+ll pictures/Chert/
+mv pictures/Chert/ pictures/wallpapers
+sudo umount /mnt
+startx
+reboot 
+echo $SHELL
+echo $TERM
+xset r rate 215 42
+echo $0
+echo $TERM
+xterm
+alacritty 
+xterm
+sudo pacman -S xterm
+pacman -Ss xterm
+whereis xterm
+br
+br -hi
+firefox 
+dmenu
+whereis dmenu
+sudo pacman -S xterm
+xterm
+vim
+mkdir -p ~/.local/share/fonts
+mv Downloads/ downloads/
+unzip
+pcmanfm
+rmdir downloads/Downloads/
+startx
+firefox 
+sudo pacman -S pcmanfm
+pcmanfm
+dmenu
+firefox
+reboot 
+vim
+fc-cache 
+man fc-cache
+sudo fc-cache -f -v
+mv ~/.local/share/fonts/ /usr/share/fonts/
+sudo mv ~/.local/share/fonts/ /usr/share/fonts/
+ll ~/.local/share/
+ll /usr/share/fonts/
+ls -la /usr/share/
+ls -la /usr/share/fonts/
+sudo mv /usr/share/fonts/fonts/ /usr/share/fonts/
+sudo mv /usr/share/fonts/fonts/* /usr/share/fonts/
+ll /usr/share/fonts/
+rmdir /usr/share/fonts/fonts/
+sudo rmdir /usr/share/fonts/fonts/
+fc-cache -f -v
+logout 
+fc-list | grep -i jetbrains
+vim
+xterm
+xset r rate 215 42
+rm -rf /usr/share/fonts/JetBrainsMono
+sudo rm -rf /usr/share/fonts/JetBrainsMono
+ll /usr/share/fonts/
+su
+vim ~/.xprofile
+vim ~/.xinitrc 
+rm .xprofile 
+vim .xinitrc 
+vim
+appres Xterm xterm
+sudo pacman -S appres
+lsof
+pacman -S lsof
+sudo pacman -S lsof
+xterm -report-fonts
+fc-match mono
+vim ~/.Xresources
+xterm 
+vim .Xresources 
+neofetch 
+cls
+neofetch 
+cls
+vim
+neofetch 
+cmatrix 
+watch -n 2 sensors
+htop
+nmtui
+nmcli 
+pacman -Syu
+su
+figlet sho | lolcat
+bash
+startx
+startx 
+vim .bash_profile 
+reboot 
+vim .config/leftwm/config.toml 
+sudo pacman -S slock
+vim .config/leftwm/config.toml 
+polybar
+whereis libinput
+reboot 
+sudo pacman -S sxiw
+sudo pacman -S sxiv
+sudo pacman -S lxapp
+sudo pacman -S lxappearance
+sudo pacman -Syu
+neofetch 
+cma
+cmatrix 
+htop 
+tty-clock 
+sudo pacman -S ttyclock
+sudo pacman -S tty-clock
+sudo pacman -Ss clock
+paru -S tty-clock
+neofetch 
+cls
+neofetch 
+vim
+neofetch 
+vim
+neofetch 
+vim
+pacman -Ss gtk-themes
+man lxappearance
+sudo pacman -S arc-gtk-theme
+sudo pacman -Ss sweet
+ll /usr/share/themes/
+ll /usr/share/themes/Arc-Darker/
+ll
+unzip downloads/Sweet-Dark.tar.xz -d /usr/share/themes/Sweet
+rm downloads/Sweet-Dark.tar.xz 
+paru -Ss sweet
+paru -S sweet-theme-dark
+paru -S sweet-theme-git
+paru -Rns sweet
+paru -Qs sweet
+paru -Rns sweet-theme-git
+pacman -Qdt
+sudo pacman -Rns inkscape
+pacman -Qdt
+pacman -Rns optipng
+sudo pacman -Rns optipng
+cla
+cls
+paru -Ss sweet
+paru -S sweet-theme-dark
+paru -Ss candy
+paru -S candy-icons-git
+paru -Ss sweet
+paru -Ss sweet-folders
+cls
+paru -Ss sweet-folders
+paru -S sweet-folders-icons-git
+pacman -Qdt
+paru -Qdt
+df -h
+paru -Ss tela
+paru -S tela-icon-theme
+sudo pacman -Syu
+visudo 
+su
+sudo pacman -Syu
+sudo visudo
+sudo pacman -Qdt
+paru -Ss cyberre
+paru -Ss cyber
+paru -Ss cyber grub
+cd downloads/
+unzip Grub2-theme\ CyberRe\ 1.0.0.tar.gz 
+tar
+tar --usage
+tar Grub2-theme\ CyberRe\ 1.0.0.tar.gz 
+gzip
+tar xfv Grub2-theme\ CyberRe\ 1.0.0.tar.gz 
+ll
+cd CyberRe\ 1.0.0/
+vim install.sh 
+./install.sh 
+reboot 
+vim
+tty-clock 
+htop 
+neofetch 
+pacman -Qeq
+pacman -Qeq > sho.txt
+vim sho.txt 
+rm sho.txt 
+cmatrix 
+vifm
+neofetch 
+su
+tty-clock 
+htop
+poweroff 
+df -h
+nmcli device wifi list
+nmcli device wifi connect A322K1 password 999999999
+vim .bash_history 
+nmcli device wifi list
+nmcli device wifi connect A322K1 password 999999999
+ping vk.com
+pacman -Ss visual
+su
+sudo pacman -S vifm
+vifm
+pacman -Qdt
+sxiv
+sxiv pictures/wallpapers/5.jpg 
+figlet windows saset(( | lolcat
+figlet windows saset | lolcat
+cowsay windows saset | lolcat
+cd /
+ll
+ll /home/
+ll /home/hasty/
+cd
+w3m lite.duckduckgo.com
+sudo pacman -Syyu
+fzf
+sudo pacman -S fzf
+paru -Ss minecraft
+paru -Ss defrag
+man paru
+paru -S quake3-defrag
+w3m lite.duckduckgo.com
+paru -S quake3-defrag
+pacman -Qdt
+paru -Qs quake
+df -h
+figlet windows saset | lolcat
+cmatrix 
+tty-clock 
+fzf
+cd /
+fzf
+cd /usr/share/
+fzf
+ll
+cd themes/
+ll
+Sweet-Dark/
+cd Sweet-Dark/
+ll
+vim index.theme 
+cd ..
+fzf
+cd icons/Sweet-Rainbow/
+vim index.theme 
+ll ../
+poweroff 
+sudo poweroff
+nmcli device wifi list
+nmcli 
+nmcli device wifi list
+nmcli device wifi connect 310 password 111111111
+ping vk.com
+paru -Ss simp1e
+neofetch 
+reboot 
+bash
+figlet sho
+figlet sho | lolcat 
+bash
+vim .bashrc 
+vim .bash_aliases 
+source .bash_aliases 
+ebash
+ebash
+paru -Ss sweet
+paru -Ss sweet-cursor
+cls
+paru -Ss sweet-cursor
+paru -S sweet-cursor
+paru -S sweet-cursor-theme-git
+reboot 
+paru -Qs sweet-cursor
+paru -Rns sweet-cursor-theme-git
+paru -Qdt
+df -h
+ll /usr/share/
+paru -Qeq
+paru -Rns arc-gtk-theme
+paru -Rns lsof
+paru -Qeq
+find /usr/share/icons ~/.local/share/icons ~/.icons -type d -name "cursors"
+neofetch 
+vim .bash_history 
+cd downloads/
+tar xfv Sweet-cursors.tar.xz 
+ll
+ll Sweet-cursors
+cd Sweet-cursors
+ll
+vim index.theme 
+mv -rv cursors/ /usr/share/icons/Sweet-Rainbow/
+mv -v cursors/ /usr/share/icons/Sweet-Rainbow/
+sudo mv -v cursors/ /usr/share/icons/Sweet-Rainbow/
+ll
+cd /usr/share/icons/Sweet-Rainbow/
+ll
+ll cursors/
+vim index.theme 
+reboot 
+vim .xinitrc 
+vim downloads/Sweet-cursors/index.theme 
+ll downloads/Sweet-cursors
+su
+cd downloads/Sweet-cursors
+vim index.theme 
+su
+paru -Ss sweet-cursor
+paru -S sweet-cursor-theme-git
+find /usr/share/icons ~/.local/share/icons ~/.icons -type d -name "cursors"
+cd downloads/
+l
+ll
+rm -rm Sweet-cursors
+rm -r Sweet-cursors
+ll
+paru -Qs cursot
+paru -Qs cursor
+whereis sweet-cursor-theme-git
+fzf
+cd /
+fzf
+cd var/lib/pacman/local/sweet-cursor-theme-git-r174.3a33b76-1/
+ll
+cd files 
+ll
+vim files 
+su
+ll /usr/share/icons/Sweet-Rainbow/
+su
+sudo paru -Ss leftwm
+mkdir -p ~/.config/leftwm/themes
+nmcli
+cls
+nmcli device wifi list
+nmcli device wifi connect 301_ISIT password 111111111
+curl parrot.live
+curl parrot.live
+curl parrot.live
+update-grub
+pacman -Ss update-grub
+paru -Ss update-grub
+sudo pacman -Syyu
+cd .config/leftwm/
+l
+ll
+cd themes/
+ll
+cd ~/downloads/
+curl -fLo https://github.com/leftwm/leftwm/tree/master/themes/basic_polybar
+curl -fLo "https://github.com/leftwm/leftwm/tree/master/themes/basic_polybar"
+man curl
+paru -Ss leftwm
+vim .bash_aliases 
+paru -Ss freetube
+pacman -Ss freetube
+paru -S freetube
+tty-clock 
+poweroff 
+sudo pacman -Syu
+vim .xinitrc 
+vim
+vim .xinitrc 
+cd downloads/
+curl -fLo "https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/leftwm/leftwm/tree/master/themes/basic_polybar
+curl -fLo "https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/leftwm/leftwm/tree/master/themes/basic_polybar"
+curl "https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/leftwm/leftwm/tree/master/themes/basic_polybar"
+ll
+unzip downloads/basic_polybar.zip -d ~/.config/leftwm/themes/basic_polybar
+mv .config/leftwm/themes/basic_polybar/basic_polybar/ .config/leftwm/themes/basic_polybar/
+mv .config/leftwm/themes/basic_polybar/basic_polybar/* .config/leftwm/themes/basic_polybar/
+sxiv background.jpg
+ln -s ~/.config/leftwm/themes/basic_polybar ~/.config/leftwm/themes/current
+cd .config/leftwm/themes/
+ll
+tree
+br -hi
+man pcmanfm
+cd
+vim .xinitrc 
+ps -aux | grep pcmanfm
+vim .xinitrc 
+polybar
+vim .config/leftwm/themes/current/polybar.config 
+cd .config/leftwm/themes/current
+ll
+vim up 
+vim theme.toml 
+paru -Qs polybar
+cd
+cp /usr/share/doc/polybar/config $XDG_CONFIG_HOME/polybar/config
+echo $XDG_CONFIG_HOME
+cp /usr/share/doc/polybar/config ~/.config/polybar/config
+vim /usr/share/doc/polybar/config 
+man cp
+mkdir ~/.config/polybar
+cp /usr/share/doc/polybar/config ~/.config/polybar/config
+polybar
+polybar mybar
+vim .config/polybar/config 
+polybar example
+vim .config/leftwm/config.toml 
+vim .xinitrc 
+cd .config/leftwm/themes/
+ll
+vim .config/leftwm/themes/current/up 
+vim .xinitrc 
+paru -Ss leftwm
+vim .config/leftwm/themes/basic_polybar/up 
+cd .config/leftwm/themes/
+ll
+cd
+git clone https://github.com/leftwm/leftwm-theme
+vim .config/leftwm/themes.toml
+ll .config/leftwm/
+leftwm-state 
+leftwm
+leftwm-state | less
+leftwm-worker 
+man leftwm-theme/
+man leftwm
+man leftwm-worker
+man leftwm-state
+leftwm-theme
+cd leftwm-theme/
+ll
+vim Cargo.toml 
+ll
+vim README.md 
+cd
+rm -rf leftwm-theme/
+ll
+cd .config/leftwm/
+ll
+themes/
+cd themes/
+ll
+cd basic_polybar/
+ll
+rm -r .config/leftwm/themes/
+ll .config/leftwm/
+git clone https://github.com/leftwm/leftwm
+cp -r leftwm/themes/ .config/leftwm/themes
+ln -s basic_polybar/ current
+ll
+vim .config/leftwm/themes/basic_polybar/up
+pacman -Qdt
+pacman -Qs pulseaudio
+pacman -Ss pulseaudio
+nmcli
+cd .config/leftwm/themes/
+ll
+cd basic_polybar/
+ll
+vim up 
+vim down
+vim theme.toml 
+vim sizes.liquid 
+vim template.liquid 
+vim polybar.config 
+ll dotfiles/
+sudo pacman -S clang-format
+sudo pacman -Ss clang
+sudo pacman -Ss format
+paru -Ss clang-format
+sudo -S pacman clang
+sudo pacman -S clang
+su
+mkdir dev
+mkdir -p dev/cpp/mp
+cd dev/cpp/mp
+mkdir lr_1
+cd lr_1/
+vim source.cpp
+g++ source.cpp 
+./a.out 
+rm a.out 
+ll
+vim
+vim source.cpp 
+clang-format -style=llvm -dump-config > .clang-format
+ll
+clangd --version
+vim CMakeLists.txt
+cmake 
+ll
+cmake CMakeLists.txt 
+ll
+rm -r CMakeFiles/
+rm CMakeCache.txt 
+ll
+vim CMakeLists.txt 
+mkdir build
+mkdir src
+ll
+mv source.cpp src/
+l
+ll
+ll src/
+cls
+ll
+man cmake
+cmake -S src/ -B build/
+mv CMakeLists.txt src/CMakeLists.txt
+ll
+ll src/
+mv src/CMakeLists.txt CMakeLists.txt
+ll
+cmake -B build -S .
+ll
+ll build/
+vim CMakeLists.txt 
+cmake -B build -S .
+vim CMakeLists.txt 
+cmake -B build -S .
+vim CMakeLists.txt 
+cmake -B build -S .
+vim CMakeLists.txt 
+cmake -B build -S .
+ll build/
+make build/
+vim build/Makefile 
+make build/
+man make
+cd build/
+make
+./Sho 
+cd ..
+ll
+vim CMakeLists.txt 
+cmake -B build -S .
+ll
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -B build -S .
+ll
+br -hi
+vim
+ln -s build/compile_commands.json compile_commands.json
+ll
+vim src/source.cpp 
+reboot 
+vim
+cd dev/cpp/mp/
+ll
+cd lr_1/
+ll
+vim src/source.cpp 
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -B build -S .
+make -B build/
+cd build/
+make
+./Sho 
+vim ../src/source.cpp 
+make
+./Sho 
+vim ../src/source.cpp 
+ll
+cd ..
+ll
+lolcat compile_commands.json 
+cat compile_commands.json 
+cls
+su
+vim /etc/vimrc 
+sudo /etc/vimrc
+sudo vim /etc/vimrc 
+vim
+cd .vim
+lll
+ll
+ll plugged/
+cd dev/cpp/mp/lr_1/
+./run.sh 
+cat run.sh 
+cmake -S . -B build/
+make -C build/
+rm -r build/*
+ll build/
+cmake -S . -B build/
+make -C build/
+./build/lr_1 
+vim run.sh 
+./run.sh 
+./build/lr_1 
+br
+br -hi
+ll
+vim polybar.config 
+cd ~/dev/cpp/mp/lr_1/
+ll
+vim
+vim src/source.cpp 
+ll
+vim
+./run.sh 
+ll
+ll .cache/
+vim CMakeLists.txt 
+cd ~/.config/leftwm/
+ll
+vim config.toml 
+cd themes/
+ll
+cd basic_polybar/
+ll
+vim up 
+vim down
+vim change_to_tag 
+vim sizes.liquid 
+vim template.liquid 
+vim theme.toml 
+vim polybar.config 
+sudo pacman -S nvidia
+suspend 
+man suspend
+suspend --help
+poweroff 
+sudo pacman -S libre-office
+pacman -Ss libre-office
+pacman -Ss office
+pacman -S libreoffice
+sudo pacman -S libreoffice
+sudo pacman -Qdt
+sudo pacman -Syyu
+sudo pacman -S vlc
+vim .config/leftwm/config.toml 
+rebo
+reboot 
+cd /sys/class/leds
+br -hi
+fzf
+ll
+brightnessctl
+paru -Ss brightnessctl
+setxkbmap -print -verbose 10
+pacman -Ss leftwm
+paru -Ss leftwm
+sudo pacman -Ss alsa
+sudo pacman -S alsa
+sudo pacman -S alsa-utils
+wmctrl
+pacman -Ss wmctrl
+sudo pacman -S wmctrl
+man wmctrl
+poweroff 
+lsblk
+sudo mount /dev/sdb1 /mnt
+sudo umount /mnt
+sudo pacman -Syu
+neofetch 
+reboot 
+su
+whereis java
+ll
+ll dev/
+mkdir dev/java
+ps -aux | grep idea
+htop
+pacman -Ss jdk
+jdk
+java -version
+javac -version
+paru -Ss intellij
+echo $IDE_HOME
+echo $IDEA_JDK
+lll
+ll
+pacman -Qs java
+pacman -Qs jdk
+su
+echo $PATH
+vim .bashrc 
+ll | grep bash
+vim .bash_profile 
+ll /usr/lib/jvm/
+whereis java
+vim .bashrc 
+wwhereis picom
+whereis picom
+whereis compton
+htop
+cd .config/leftwm/themes/basic_polybar/
+vim up
+cd .config/leftwm/themes/basic_polybar/
+vim up 
+htop
+echo $JAVA_HOME
+echo $PATH
+pacman -Qs jdk
+java -version

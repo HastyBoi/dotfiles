@@ -10,7 +10,7 @@ key = "r"
 
 [[keybind]]
 command = "Execute"
-value = "dmenu_run"
+value = "dmenu_run -h 26"
 modifier = ["modkey"]
 key = "p"
 

@@ -30,7 +30,7 @@ $if mode=vi
 $endif
 
 # faster tab completion
-set show-all-if-ambiguous on
+set show-all-if-unmodified on
 
 # color files by types
 # note that this may cause completion text blink in some terminals (e.g. xterm).

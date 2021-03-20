@@ -1,0 +1,11 @@
+{"_id":"barColor","value":true}
+{"_id":"bounds","value":{"x":9,"y":25,"width":1348,"height":734,"maximized":false}}
+{"_id":"checkForBlogPosts","value":false}
+{"_id":"hidePopularVideos","value":true}
+{"_id":"hideRecommendedVideos","value":false}
+{"_id":"hideTrendingVideos","value":true}
+{"_id":"hideWatchedSubs","value":false}
+{"_id":"playNextVideo","value":false}
+{"_id":"rememberHistory","value":false}
+{"_id":"saveWatchedProgress","value":false}
+{"_id":"bounds","value":{"x":692,"y":406,"width":665,"height":353,"maximized":false}}
