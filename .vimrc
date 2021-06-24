@@ -1,31 +1,40 @@
-"let g:polyglot_disabled = ['c/c++.plugin']
-
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeToggle' }
+"Plug 'Chiel92/vim-autoformat'
+Plug 'cdelledonne/vim-cmake'
+Plug 'itchyny/lightline.vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/vim-slash'
+Plug 'justinmk/vim-sneak'
+Plug 'liuchengxu/vim-which-key'
+Plug 'mattn/emmet-vim'
+Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'Chiel92/vim-autoformat'
-Plug 'tpope/vim-surround'
-"Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-"Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-"Plug 'airblade/vim-gitgutter'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-fugitive'
-"Plug 'ap/vim-buftabline'
-"Plug 'sheerun/vim-polyglot'
-Plug 'mhinz/vim-startify'
-Plug 'jiangmiao/auto-pairs'
+Plug 'powerman/vim-plugin-ruscmd'
+Plug 'preservim/nerdtree'
 Plug 'psliwka/vim-smoothie'
+Plug 'ryanoasis/vim-devicons'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'tweekmonster/startuptime.vim'
-Plug 'mattn/emmet-vim'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'unblevable/quick-scope'
+Plug 'sjl/gundo.vim'
+" Plug 'shmup/vim-sql-syntax'
 
 "colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'kaicataldo/material.vim'
 
 call plug#end()
 
@@ -48,6 +57,8 @@ set showcmd
 set backspace=indent,eol,start
 set cursorline
 set nocompatible
+set ignorecase
+set nohlsearch
 set path+=**
 set wildmenu
 set complete-=i
@@ -57,16 +68,23 @@ set scrolloff=1
 set sidescrolloff=5
 set display+=lastline
 set autoread
-set updatetime=50
+set updatetime=1000
 set shortmess+=c
-set signcolumn=number
 set splitbelow
 set splitright
 set fileformat=unix
+set timeoutlen=1000 ttimeoutlen=0
+set nowrap
 set whichwrap+=b,s,<,>,[,]
-" not recommended
-set whichwrap+=h,l
+set clipboard=unnamedplus
 
+if (!has("nvim"))
+    set signcolumn=number
+endif
+
+" persistent undo
+set undodir=~/.vim/undodir
+set undofile
 
 " ignore useless extensions for wildmenu
 set wildignore+=*.a,*.o,*.so,*.pyc,.git
@@ -80,9 +98,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 hi! Normal ctermbg=NONE guibg=NONE
 
 " vim-autoformat format on save
-autocmd BufWrite * :Autoformat
+"autocmd BufWrite * :Autoformat
 " disable vim-autoformat for conf files
-autocmd FileType conf,yaml,vim,dosini let b:autoformat_autoindent=0
+"autocmd FileType conf,yaml,vim,dosini let b:autoformat_autoindent=0
 
 " coc prettify
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -128,24 +146,29 @@ function! StatusDiagnostic() abort
     if empty(info) | return '' | endif
     let msgs = []
     if get(info, 'error', 0)
-        call add(msgs, '⛔' . info['error'])
+        call add(msgs, 'e ' . info['error'])
     endif
     if get(info, 'warning', 0)
-        call add(msgs, '⚠ ' . info['warning'])
+        call add(msgs, 'w ' . info['warning'])
     endif
     return join(msgs, ' ') . ' |' . get(g:, 'coc_status', '')
+endfunction
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
 endfunction
 
 let g:lightline = {
             \ 'colorscheme': 'palenight',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+            \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ],
             \   'right': [ [ 'lineinfo' ],
             \             [ 'fileformat', 'fileencoding', 'filetype' ] ]
             \ },
             \ 'component_function': {
-            \   'cocstatus': 'StatusDiagnostic'
+            \   'cocstatus': 'StatusDiagnostic',
+            \   'currentfunction': 'CocCurrentFunction'
             \ },
             \ 'inactive': {
             \   'left': [ [ 'filename' ] ],
@@ -169,14 +192,126 @@ let g:startify_update_oldfiles = 1
 " q e i b s v t
 let g:startify_bookmarks = [{'c': '~/.vimrc'}, {'h': '~/.bashrc' }, {'p': '~/.profile' }, {'a': '~/.config/alacritty/alacritty.yml' }]
 
+" sneak
+let g:sneak#label = 1
+let g:sneak#use_ic_scs = 1
+let g:sneak#s_next = 1
+
+" Change the colors
+highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
+
+" quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
+
+let g:qs_max_chars=150
+
+" which_key
+" Map leader to which_key
+nnoremap <silent> <space> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <space> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
+" Create map to add keys to
+let g:which_key_map =  {}
+" Define a separator
+let g:which_key_sep = '→'
+set timeoutlen=500
+
+
+" Not a fan of floating windows for this
+let g:which_key_use_floating_win = 0
+
+" Change the colors if you want
+highlight default link WhichKey          Operator
+highlight default link WhichKeySeperator DiffAdded
+highlight default link WhichKeyGroup     Identifier
+highlight default link WhichKeyDesc      Function
+
+" Hide status line
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
+" Single mappings
+let g:which_key_map['/'] = [ 'Commentary'                 , 'comment'  ]
+let g:which_key_map['f'] = [ ':Files'                     , 'search files'  ]
+let g:which_key_map['b'] = [ ':Buffers'                   , 'search buffers'  ]
+let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below' ]
+let g:which_key_map['S'] = [ ':Startify'                  , 'start screen'  ]
+let g:which_key_map['T'] = [ ':Rg'                        , 'search text'  ]
+let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right' ]
+let g:which_key_map['z'] = [ 'Goyo'                       , 'zen'  ]
+let g:which_key_map['<Tab>'] = [ '<C-^>'                  , 'switch last'  ]
+
+nnoremap <silent><space>v :NERDTreeFind<CR>
+noremap <silent><space>w :up<CR>
+noremap <space>th <C-w>t<C-w>K
+noremap <space>tv <C-w>t<C-w>H
+
+" s is for search
+let g:which_key_map.s = {
+      \ 'name' : '+search' ,
+      \ '/' : [':History/'     , 'history'],
+      \ ';' : [':Commands'     , 'commands'],
+      \ 'a' : [':Ag'           , 'text Ag'],
+      \ 'b' : [':BLines'       , 'current buffer'],
+      \ 'B' : [':Buffers'      , 'open buffers'],
+      \ 'c' : [':Commits'      , 'commits'],
+      \ 'C' : [':BCommits'     , 'buffer commits'],
+      \ 'f' : [':Files'        , 'files'],
+      \ 'g' : [':GFiles'       , 'git files'],
+      \ 'G' : [':GFiles?'      , 'modified git files'],
+      \ 'h' : [':History'      , 'file history'],
+      \ 'H' : [':History:'     , 'command history'],
+      \ 'l' : [':Lines'        , 'lines'] ,
+      \ 'm' : [':Marks'        , 'marks'] ,
+      \ 'M' : [':Maps'         , 'normal maps'] ,
+      \ 'p' : [':Helptags'     , 'help tags'] ,
+      \ 'P' : [':Tags'         , 'project tags'],
+      \ 's' : [':Snippets'     , 'snippets'],
+      \ 'S' : [':Colors'       , 'color schemes'],
+      \ 't' : [':Rg'           , 'text Rg'],
+      \ 'T' : [':BTags'        , 'buffer tags'],
+      \ 'w' : [':Windows'      , 'search windows'],
+      \ 'y' : [':Filetypes'    , 'file types'],
+      \ 'z' : [':FZF'          , 'FZF'],
+      \ }
+
+
+" Register which key map
+call which_key#register('<Space>', "g:which_key_map")
+
+" goyo
+let g:goyo_width=100
+function! s:goyo_enter()
+    set noshowmode
+    set noshowcmd
+    hi! Normal ctermbg=NONE guibg=NONE
+endfunction
+
+function! s:goyo_leave()
+    set showmode
+    set showcmd
+    hi! Normal ctermbg=NONE guibg=NONE
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" vim-rainbow
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+autocmd FileType * RainbowParentheses
+
+" vim-slash
+noremap <plug>(slash-after) zz
 
 " mappings
 nnoremap <silent><C-b> :NERDTreeToggle<CR>
 nnoremap <C-n> :tabnew <bar> :Startify<CR>
-
-" visual line navigation
-nnoremap j gj
-nnoremap k gk
 
 " set space as the leader key
 let mapleader = " "
@@ -184,19 +319,8 @@ let mapleader = " "
 " change emmet leader key
 let g:user_emmet_leader_key=","
 
-" save file
-noremap <silent><leader>w :up<CR>
-noremap <silent><C-s> :up<CR>
-
 " refresh
-nnoremap <silent><F5> :so%<CR>
-
-" quit
-noremap <leader>q :q<CR>
-noremap <C-q> :q<CR>
-
-" open last buffer
-nnoremap <leader><leader> <C-^>
+nnoremap <silent><F5> :so $MYVIMRC<CR>
 
 " easier split navigation
 nnoremap <C-h> <C-w>h
@@ -204,19 +328,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" change horizontal split to vertical
-noremap <leader>th <C-w>t<C-w>K
-
-" change vertical split to horizontal
-noremap <leader>tk <C-w>t<C-w>H
-
 " move lines up/down
-"nnoremap <silent><C-S>j :m .+1<CR>==
-"nnoremap <silent><C-S>k :m .-2<CR>==
-"inoremap <silent><C-S>j <Esc>:m .+1<CR>==gi
-"inoremap <silent><C-S>k <Esc>:m .-2<CR>==gi
-"vnoremap <silent><C-S>j :m '>+1<CR>gv=gv
-"vnoremap <silent><C-S>k :m '<-2<CR>gv=gv
+nnoremap <silent><M-j> :m .+1<CR>==
+nnoremap <silent><M-k> :m .-2<CR>==
+inoremap <silent><M-j> <Esc>:m .+1<CR>==gi
+inoremap <silent><M-k> <Esc>:m .-2<CR>==gi
+vnoremap <silent><M-j> :m '>+1<CR>gv=gv
+vnoremap <silent><M-k> :m '<-2<CR>gv=gv
 
 " disable arrows
 for key in ['<Up>', '<Down>', '<Left>', '<Right>']
@@ -226,10 +344,6 @@ endfor
 
 " add new line below current line with Enter in normal mode
 nnoremap <CR> o<Esc>k
-
-" switch to normal mode
-inoremap kj <Esc>
-inoremap jk <Esc>
 
 " disable mouse
 set mouse =
@@ -242,16 +356,16 @@ set mouse =""
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
+            \ <SID>check_back_leader() ? "\<TAB>" :
             \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
+function! s:check_back_leader() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <C-space> to trigger completion.
+" Use <C-leader> to trigger completion.
 inoremap <silent><expr> <C-space> coc#refresh()
 inoremap <silent><expr> <NUL> coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -300,11 +414,14 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <space>rr <Plug>(coc-rename)
+
+" Project rename word
+nnoremap <space>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <space>f  <Plug>(coc-format-selected)
+" nmap <space>f  <Plug>(coc-format-selected)
 
 augroup mygroup
     autocmd!
@@ -315,14 +432,14 @@ augroup mygroup
 augroup end
 
 " Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Example: `<space>aap` for current paragraph
+xmap <space>a  <Plug>(coc-codeaction-selected)
+nmap <space>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <space>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <space>qf  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -363,11 +480,29 @@ nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<CR>
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<CR>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<CR>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<CR>
+" Search workleader symbols.
+nnoremap <silent><nowait> <space>ss  :<C-u>CocList -I symbols<CR>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+let g:ascii = [
+            \ '                                                       ',
+            \ '       ██╗  ██╗ █████╗ ███████╗████████╗██╗   ██╗      ',
+            \ '       ██║  ██║██╔══██╗██╔════╝╚══██╔══╝╚██╗ ██╔╝      ',
+            \ ' █████╗███████║███████║███████╗   ██║    ╚████╔╝█████╗ ',
+            \ ' ╚════╝██╔══██║██╔══██║╚════██║   ██║     ╚██╔╝ ╚════╝ ',
+            \ '       ██║  ██║██║  ██║███████║   ██║      ██║         ',
+            \ '       ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝      ╚═╝         ',
+            \ '                                                       ',
+            \ ]
+
+let g:startify_padding_left = 9
+let g:startify_custom_header =
+            \ 'startify#pad(g:ascii)'
+
+
+let g:sql_type_default = 'sqlserver'
