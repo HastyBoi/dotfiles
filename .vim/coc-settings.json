@@ -1,0 +1,12 @@
+{
+    "eslint.autoFixOnSave": true,
+    "coc.preferences.formatOnSaveFiletypes": ["css","javascript", "html"],
+    "html.autoClosingTags":true,
+    "coc.preferences.currentFunctionSymbolAutoUpdate":true,
+    "snippets.textmateSnippetsRoots": ["/home/hasty/.config/snippets"],
+    "prettier.trailingComma": "es5",
+    "prettier.tabWidth": 4,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "sql.database": "transactsql"
+}
